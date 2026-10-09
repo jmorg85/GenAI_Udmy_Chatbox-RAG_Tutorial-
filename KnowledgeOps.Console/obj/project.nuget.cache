@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "skWU1rO3Akc=",
+  "dgSpecHash": "WSG3nXqO19c=",
   "success": true,
   "projectFilePath": "C:\\Users\\Justice\\Documents\\VSCodeProjects\\GenAI_Udemy_Course\\KnowledgeOps.Console\\KnowledgeOps.Console.csproj",
   "expectedPackageFiles": [
@@ -9,7 +9,7 @@
     "C:\\Users\\Justice\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\10.0.2\\microsoft.bcl.asyncinterfaces.10.0.2.nupkg.sha512",
     "C:\\Users\\Justice\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.1\\microsoft.bcl.hashcode.1.1.1.nupkg.sha512",
     "C:\\Users\\Justice\\.nuget\\packages\\microsoft.extensions.ai\\10.5.0\\microsoft.extensions.ai.10.5.0.nupkg.sha512",
-    "C:\\Users\\Justice\\.nuget\\packages\\microsoft.extensions.ai.abstractions\\10.5.0\\microsoft.extensions.ai.abstractions.10.5.0.nupkg.sha512",
+    "C:\\Users\\Justice\\.nuget\\packages\\microsoft.extensions.ai.abstractions\\10.5.2\\microsoft.extensions.ai.abstractions.10.5.2.nupkg.sha512",
     "C:\\Users\\Justice\\.nuget\\packages\\microsoft.extensions.ai.openai\\10.5.0\\microsoft.extensions.ai.openai.10.5.0.nupkg.sha512",
     "C:\\Users\\Justice\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\10.0.6\\microsoft.extensions.caching.abstractions.10.0.6.nupkg.sha512",
     "C:\\Users\\Justice\\.nuget\\packages\\microsoft.extensions.configuration\\10.0.12\\microsoft.extensions.configuration.10.0.12.nupkg.sha512",
@@ -29,6 +29,7 @@
     "C:\\Users\\Justice\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\10.0.12\\microsoft.extensions.filesystemglobbing.10.0.12.nupkg.sha512",
     "C:\\Users\\Justice\\.nuget\\packages\\microsoft.extensions.hosting\\10.0.12\\microsoft.extensions.hosting.10.0.12.nupkg.sha512",
     "C:\\Users\\Justice\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\10.0.12\\microsoft.extensions.hosting.abstractions.10.0.12.nupkg.sha512",
+    "C:\\Users\\Justice\\.nuget\\packages\\microsoft.extensions.http\\10.0.2\\microsoft.extensions.http.10.0.2.nupkg.sha512",
     "C:\\Users\\Justice\\.nuget\\packages\\microsoft.extensions.logging\\10.0.12\\microsoft.extensions.logging.10.0.12.nupkg.sha512",
     "C:\\Users\\Justice\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\10.0.12\\microsoft.extensions.logging.abstractions.10.0.12.nupkg.sha512",
     "C:\\Users\\Justice\\.nuget\\packages\\microsoft.extensions.logging.configuration\\10.0.12\\microsoft.extensions.logging.configuration.10.0.12.nupkg.sha512",
@@ -40,17 +41,18 @@
     "C:\\Users\\Justice\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\10.0.12\\microsoft.extensions.options.configurationextensions.10.0.12.nupkg.sha512",
     "C:\\Users\\Justice\\.nuget\\packages\\microsoft.extensions.options.dataannotations\\10.0.7\\microsoft.extensions.options.dataannotations.10.0.7.nupkg.sha512",
     "C:\\Users\\Justice\\.nuget\\packages\\microsoft.extensions.primitives\\10.0.12\\microsoft.extensions.primitives.10.0.12.nupkg.sha512",
-    "C:\\Users\\Justice\\.nuget\\packages\\microsoft.extensions.vectordata.abstractions\\10.1.0\\microsoft.extensions.vectordata.abstractions.10.1.0.nupkg.sha512",
+    "C:\\Users\\Justice\\.nuget\\packages\\microsoft.extensions.vectordata.abstractions\\10.5.2\\microsoft.extensions.vectordata.abstractions.10.5.2.nupkg.sha512",
     "C:\\Users\\Justice\\.nuget\\packages\\microsoft.semantickernel\\1.75.0\\microsoft.semantickernel.1.75.0.nupkg.sha512",
-    "C:\\Users\\Justice\\.nuget\\packages\\microsoft.semantickernel.abstractions\\1.75.0\\microsoft.semantickernel.abstractions.1.75.0.nupkg.sha512",
+    "C:\\Users\\Justice\\.nuget\\packages\\microsoft.semantickernel.abstractions\\1.81.0\\microsoft.semantickernel.abstractions.1.81.0.nupkg.sha512",
     "C:\\Users\\Justice\\.nuget\\packages\\microsoft.semantickernel.connectors.azureopenai\\1.75.0\\microsoft.semantickernel.connectors.azureopenai.1.75.0.nupkg.sha512",
     "C:\\Users\\Justice\\.nuget\\packages\\microsoft.semantickernel.connectors.openai\\1.75.0\\microsoft.semantickernel.connectors.openai.1.75.0.nupkg.sha512",
-    "C:\\Users\\Justice\\.nuget\\packages\\microsoft.semantickernel.core\\1.75.0\\microsoft.semantickernel.core.1.75.0.nupkg.sha512",
+    "C:\\Users\\Justice\\.nuget\\packages\\microsoft.semantickernel.core\\1.81.0\\microsoft.semantickernel.core.1.81.0.nupkg.sha512",
+    "C:\\Users\\Justice\\.nuget\\packages\\microsoft.semantickernel.plugins.core\\1.81.0-preview\\microsoft.semantickernel.plugins.core.1.81.0-preview.nupkg.sha512",
     "C:\\Users\\Justice\\.nuget\\packages\\openai\\2.10.0\\openai.2.10.0.nupkg.sha512",
     "C:\\Users\\Justice\\.nuget\\packages\\system.clientmodel\\1.10.0\\system.clientmodel.1.10.0.nupkg.sha512",
     "C:\\Users\\Justice\\.nuget\\packages\\system.diagnostics.eventlog\\10.0.12\\system.diagnostics.eventlog.10.0.12.nupkg.sha512",
     "C:\\Users\\Justice\\.nuget\\packages\\system.memory.data\\10.0.3\\system.memory.data.10.0.3.nupkg.sha512",
-    "C:\\Users\\Justice\\.nuget\\packages\\system.numerics.tensors\\10.0.6\\system.numerics.tensors.10.0.6.nupkg.sha512"
+    "C:\\Users\\Justice\\.nuget\\packages\\system.numerics.tensors\\10.0.10\\system.numerics.tensors.10.0.10.nupkg.sha512"
   ],
   "logs": []
 }
