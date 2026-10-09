@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KnowledgeOps.Console")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a74f9af3a5068a6419f384e3021687e04e3f5cb5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c56f11ecdd3490f56acbcb2a5ef7295b5ec9b742")]
 [assembly: System.Reflection.AssemblyProductAttribute("KnowledgeOps.Console")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KnowledgeOps.Console")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

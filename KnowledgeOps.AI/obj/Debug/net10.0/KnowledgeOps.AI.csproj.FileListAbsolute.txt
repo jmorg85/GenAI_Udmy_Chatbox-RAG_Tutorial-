@@ -10,3 +10,6 @@ C:\Users\Justice\Documents\VSCodeProjects\GenAI_Udemy_Course\KnowledgeOps.AI\obj
 C:\Users\Justice\Documents\VSCodeProjects\GenAI_Udemy_Course\KnowledgeOps.AI\obj\Debug\net10.0\refint\KnowledgeOps.AI.dll
 C:\Users\Justice\Documents\VSCodeProjects\GenAI_Udemy_Course\KnowledgeOps.AI\obj\Debug\net10.0\KnowledgeOps.AI.pdb
 C:\Users\Justice\Documents\VSCodeProjects\GenAI_Udemy_Course\KnowledgeOps.AI\obj\Debug\net10.0\ref\KnowledgeOps.AI.dll
+C:\Users\Justice\Documents\VSCodeProjects\GenAI_Udemy_Course\KnowledgeOps.AI\obj\Debug\net10.0\KnowledgeOps.AI.sourcelink.json
+C:\Users\Justice\Documents\VSCodeProjects\GenAI_Udemy_Course\KnowledgeOps.AI\bin\Debug\net10.0\Plugins\RequestOperationsPlugin\CreateOperationsBrief\config.json
+C:\Users\Justice\Documents\VSCodeProjects\GenAI_Udemy_Course\KnowledgeOps.AI\bin\Debug\net10.0\Plugins\RequestOperationsPlugin\CreateOperationsBrief\skprompt.txt
