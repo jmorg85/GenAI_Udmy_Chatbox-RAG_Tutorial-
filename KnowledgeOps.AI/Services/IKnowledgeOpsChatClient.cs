@@ -13,6 +13,9 @@ public interface IKnowledgeOpsChatClient
     Task<string> AskWithPromptAsync(string prompt, CancellationToken cancellationToken = default);
     Task<string> SummarizeRequestAsync(string requestTitle, string requestDetails, string audience, CancellationToken cancellationToken = default);
     Task<string> CreateOperationsBriefAsync(string requestDetails, CancellationToken cancellationToken = default);
+     Task<string> GetBusinessRequestAsync(string requestId, CancellationToken cancellationToken = default);
+    Task<string> GetOpenBusinessRequestsAsync(CancellationToken cancellationToken = default);
+    Task<string> CreateRequestBriefFromPluginAsync(string requestId, CancellationToken cancellationToken = default);
 }
 
 internal sealed class KnowledgeOpsChatClient(
@@ -44,9 +47,50 @@ internal sealed class KnowledgeOpsChatClient(
         return result.ToString();
     }
 
+    public async Task<string> CreateRequestBriefFromPluginAsync(string requestId, CancellationToken cancellationToken = default)
+    {
+        var arguments = new KernelArguments
+        {
+            ["requestId"] = requestId
+        };
+
+        var result = await kernel.InvokePromptAsync(
+            KnowledgeOpsPromptTemplates.RequestBriefFromPlugin,
+            arguments,
+            cancellationToken: cancellationToken);
+
+        return result.ToString();
+    }
+
+    public async Task<string> GetBusinessRequestAsync(string requestId, CancellationToken cancellationToken = default)
+    {
+        var arguments = new KernelArguments
+        {
+            ["requestId"] = requestId
+        };
+
+        var result = await kernel.InvokeAsync(
+            "BusinessRequests",
+            "get_request_by_id",
+            arguments,
+            cancellationToken: cancellationToken);
+
+        return result.ToString();
+    }
+
     public async Task<string> GetCurrentDateAsync(CancellationToken cancellationToken = default)
     {
         var result = await kernel.InvokeAsync("Time", "Today", cancellationToken: cancellationToken);
+        return result.ToString();
+    }
+
+    public async Task<string> GetOpenBusinessRequestsAsync(CancellationToken cancellationToken = default)
+    {
+        var result = await kernel.InvokeAsync(
+            "BusinessRequests",
+            "get_open_business_requests",
+            cancellationToken: cancellationToken);
+
         return result.ToString();
     }
 

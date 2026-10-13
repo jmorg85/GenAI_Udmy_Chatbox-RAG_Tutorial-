@@ -1,4 +1,5 @@
 using System;
+using KnowledgeOps.AI.Plugins;
 using KnowledgeOps.AI.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,6 +23,8 @@ public static class ServiceCollectionExtensions
             .ValidateDataAnnotations()
             .ValidateOnStart();
 
+        services.AddSingleton<IBusinessRequestRepository, InMemoryBusinessRequestRepository>();
+
         services.AddSingleton(sp =>
         {
             var options = sp.GetRequiredService<IOptions<AzureOpenAIOptions>>().Value;
@@ -33,8 +36,11 @@ public static class ServiceCollectionExtensions
                 options.Endpoint,
                 options.ApiKey);
 
+            builder.Services.AddSingleton(sp.GetRequiredService<IBusinessRequestRepository>());
+
             builder.Plugins.AddFromType<TimePlugin>("Time");
             builder.Plugins.AddFromType<ConversationSummaryPlugin>("Summarization");
+            builder.Plugins.AddFromType<BusinessRequestPlugin>("BusinessRequests");
 
             var kernel = builder.Build();
 

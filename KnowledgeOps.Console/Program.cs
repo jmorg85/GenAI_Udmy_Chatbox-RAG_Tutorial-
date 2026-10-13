@@ -15,6 +15,7 @@ var chat = host.Services.GetRequiredService<IKnowledgeOpsChatClient>();
 var history = new ChatHistory(KnowledgeOpsPromptTemplates.CreateOperationsAssistantHistory());
 
 Console.WriteLine("Type messages. Type exit to quit.");
+Console.WriteLine("Commands: /today, /prompt-test, /get-request-summary, /brief, /request, /get-request-brief, /get-requests");
 while (true)
 {
     Console.Write("User > ");
@@ -84,6 +85,51 @@ while (true)
         var brief = await chat.CreateOperationsBriefAsync(requestDetails);
 
         Console.WriteLine($"Assistant > {brief}");
+        continue;
+    }
+
+    if (input.StartsWith("/request", StringComparison.OrdinalIgnoreCase))
+    {
+        Console.WriteLine("Enter a request ID. Example: REQ-1001");
+        var requestId = Console.ReadLine()?.Trim();
+
+        if (string.IsNullOrWhiteSpace(requestId))
+        {
+            Console.WriteLine("Assistant > Enter a request ID. Example: /request REQ-1001");
+            continue;
+        }
+
+        var request = await chat.GetBusinessRequestAsync(requestId);
+
+        Console.WriteLine($"Assistant > {request}");
+
+        continue;
+    }
+
+    if (input.Equals("/get-requests", StringComparison.OrdinalIgnoreCase))
+    {
+        var requests = await chat.GetOpenBusinessRequestsAsync();
+
+        Console.WriteLine($"Assistant > {requests}");
+
+        continue;
+    }
+
+    if (input.StartsWith("/get-request-brief", StringComparison.OrdinalIgnoreCase))
+    {
+        Console.WriteLine("Enter a request ID. Example: REQ-1001");
+        var requestId = Console.ReadLine()?.Trim();
+
+        if (string.IsNullOrWhiteSpace(requestId))
+        {
+            Console.WriteLine("Assistant > Enter a request ID. Example: /request-brief REQ-1001");
+            continue;
+        }
+
+        var brief = await chat.CreateRequestBriefFromPluginAsync(requestId);
+
+        Console.WriteLine($"Assistant > {brief}");
+
         continue;
     }
 
