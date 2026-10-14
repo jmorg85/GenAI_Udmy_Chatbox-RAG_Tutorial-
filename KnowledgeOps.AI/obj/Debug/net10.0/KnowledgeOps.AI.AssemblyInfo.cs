@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KnowledgeOps.AI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3c084bc9adcb1d584a6c4af30cd85192b8a1dfe6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4a1f9297a0c526dc83f75984340d04029c9ab3f7")]
 [assembly: System.Reflection.AssemblyProductAttribute("KnowledgeOps.AI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KnowledgeOps.AI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

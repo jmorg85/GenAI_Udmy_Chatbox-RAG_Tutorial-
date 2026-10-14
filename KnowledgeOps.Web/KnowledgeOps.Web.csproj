@@ -7,4 +7,8 @@
     <UserSecretsId>0ec08e52-7a39-405a-8f8d-6de50bd6e0a9</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\KnowledgeOps.AI\KnowledgeOps.AI.csproj" />
+  </ItemGroup>
+
 </Project>

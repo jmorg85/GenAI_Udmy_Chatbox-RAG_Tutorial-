@@ -13,17 +13,13 @@ namespace KnowledgeOps.AI;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddKnowledgeOpsAI(
-        this IServiceCollection services,
-        IConfiguration configuration)
+    public static IServiceCollection AddKnowledgeOpsAI(this IServiceCollection services, IConfiguration configuration)
     {
         services
             .AddOptions<AzureOpenAIOptions>()
             .Bind(configuration.GetSection(AzureOpenAIOptions.SectionName))
             .ValidateDataAnnotations()
             .ValidateOnStart();
-
-        services.AddSingleton<IBusinessRequestRepository, InMemoryBusinessRequestRepository>();
 
         services.AddSingleton(sp =>
         {
@@ -36,7 +32,7 @@ public static class ServiceCollectionExtensions
                 options.Endpoint,
                 options.ApiKey);
 
-            builder.Services.AddSingleton(sp.GetRequiredService<IBusinessRequestRepository>());
+            builder.Services.AddSingleton<IBusinessRequestRepository, InMemoryBusinessRequestRepository>();
 
             builder.Plugins.AddFromType<TimePlugin>("Time");
             builder.Plugins.AddFromType<ConversationSummaryPlugin>("Summarization");

@@ -1,7 +1,15 @@
+using KnowledgeOps.AI;
+using KnowledgeOps.AI.Services;
+using KnowledgeOps.Web.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddKnowledgeOpsAI(builder.Configuration);
+builder.Services.AddScoped<ICopilotService, CopilotService>();
+builder.Services.AddSingleton<IDocumentRepository, InMemoryDocumentRepository>();
+builder.Services.AddScoped<IBusinessRequestRepository, InMemoryBusinessRequestRepository>();
 
 var app = builder.Build();
 
