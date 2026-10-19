@@ -16,11 +16,10 @@ public interface IKnowledgeOpsChatClient
      Task<string> GetBusinessRequestAsync(string requestId, CancellationToken cancellationToken = default);
     Task<string> GetOpenBusinessRequestsAsync(CancellationToken cancellationToken = default);
     Task<string> CreateRequestBriefFromPluginAsync(string requestId, CancellationToken cancellationToken = default);
+    Task<string> SummarizeConversationHistoryAsync(string existingSummary, string conversationText, CancellationToken cancellationToken = default);
 }
 
-internal sealed class KnowledgeOpsChatClient(
-    IChatCompletionService chatCompletionService,
-    Kernel kernel) : IKnowledgeOpsChatClient
+internal sealed class KnowledgeOpsChatClient(IChatCompletionService chatCompletionService, Kernel kernel) : IKnowledgeOpsChatClient
 {
     public async Task<string> AskWithPromptAsync(string prompt, CancellationToken cancellationToken = default)
     {
@@ -108,6 +107,26 @@ internal sealed class KnowledgeOpsChatClient(
             cancellationToken: cancellationToken);
 
         return result.Content ?? string.Empty;
+    }
+
+    public async Task<string> SummarizeConversationHistoryAsync(string existingSummary, string conversationText, CancellationToken cancellationToken = default)
+    {
+        var prompt = KnowledgeOpsPromptTemplates.ConversationHistorySummary;
+
+        var arguments = new KernelArguments
+        {
+            ["existingSummary"] = string.IsNullOrWhiteSpace(existingSummary)
+                ? "No previous summary."
+                : existingSummary,
+            ["conversationText"] = conversationText
+        };
+
+        var result = await kernel.InvokePromptAsync(
+            prompt,
+            arguments,
+            cancellationToken: cancellationToken);
+
+        return result.ToString();
     }
 
     public async Task<string> SummarizeRequestAsync(string requestTitle, string requestDetails, string audience, CancellationToken cancellationToken = default)

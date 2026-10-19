@@ -1,0 +1,13 @@
+C:\Users\Justice\Documents\VSCodeProjects\GenAI_Udemy_Course\KnowledgeOps.Domain\bin\Debug\net10.0\KnowledgeOps.Domain.deps.json
+C:\Users\Justice\Documents\VSCodeProjects\GenAI_Udemy_Course\KnowledgeOps.Domain\bin\Debug\net10.0\KnowledgeOps.Domain.dll
+C:\Users\Justice\Documents\VSCodeProjects\GenAI_Udemy_Course\KnowledgeOps.Domain\bin\Debug\net10.0\KnowledgeOps.Domain.pdb
+C:\Users\Justice\Documents\VSCodeProjects\GenAI_Udemy_Course\KnowledgeOps.Domain\obj\Debug\net10.0\KnowledgeOps.Domain.csproj.AssemblyReference.cache
+C:\Users\Justice\Documents\VSCodeProjects\GenAI_Udemy_Course\KnowledgeOps.Domain\obj\Debug\net10.0\KnowledgeOps.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Justice\Documents\VSCodeProjects\GenAI_Udemy_Course\KnowledgeOps.Domain\obj\Debug\net10.0\KnowledgeOps.Domain.AssemblyInfoInputs.cache
+C:\Users\Justice\Documents\VSCodeProjects\GenAI_Udemy_Course\KnowledgeOps.Domain\obj\Debug\net10.0\KnowledgeOps.Domain.AssemblyInfo.cs
+C:\Users\Justice\Documents\VSCodeProjects\GenAI_Udemy_Course\KnowledgeOps.Domain\obj\Debug\net10.0\KnowledgeOps.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Justice\Documents\VSCodeProjects\GenAI_Udemy_Course\KnowledgeOps.Domain\obj\Debug\net10.0\KnowledgeOps.Domain.sourcelink.json
+C:\Users\Justice\Documents\VSCodeProjects\GenAI_Udemy_Course\KnowledgeOps.Domain\obj\Debug\net10.0\KnowledgeOps.Domain.dll
+C:\Users\Justice\Documents\VSCodeProjects\GenAI_Udemy_Course\KnowledgeOps.Domain\obj\Debug\net10.0\refint\KnowledgeOps.Domain.dll
+C:\Users\Justice\Documents\VSCodeProjects\GenAI_Udemy_Course\KnowledgeOps.Domain\obj\Debug\net10.0\KnowledgeOps.Domain.pdb
+C:\Users\Justice\Documents\VSCodeProjects\GenAI_Udemy_Course\KnowledgeOps.Domain\obj\Debug\net10.0\ref\KnowledgeOps.Domain.dll

@@ -11,4 +11,8 @@
     <ProjectReference Include="..\KnowledgeOps.AI\KnowledgeOps.AI.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" />
+  </ItemGroup>
+
 </Project>

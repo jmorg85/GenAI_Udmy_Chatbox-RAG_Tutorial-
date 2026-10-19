@@ -1,6 +1,8 @@
 using System;
 using KnowledgeOps.AI.Services;
+using KnowledgeOps.Domain.Models;
 using KnowledgeOps.Web.Models.Copilot;
+using Microsoft.Extensions.Options;
 using Microsoft.SemanticKernel.ChatCompletion;
 
 namespace KnowledgeOps.Web.Services;
@@ -10,7 +12,8 @@ public interface ICopilotService
     Task<CopilotResponse> GetResponseAsync(CopilotRequest request, CancellationToken cancellationToken=default);
 }
 
-public sealed class CopilotService(IKnowledgeOpsChatClient chatClient, ILogger<CopilotService> logger) : ICopilotService
+public sealed class CopilotService(IKnowledgeOpsChatClient chatClient, ICopilotConversationService conversationService, ICurrentUserService currentUserService, ILogger<CopilotService> logger, IOptions<CopilotHistoryOptions> options,
+ICopilotHistorySummarizerService historySummarizer) : ICopilotService
 {
     public async Task<CopilotResponse> GetResponseAsync(CopilotRequest request, CancellationToken cancellationToken = default)
     {
@@ -23,6 +26,17 @@ public sealed class CopilotService(IKnowledgeOpsChatClient chatClient, ILogger<C
                 nameof(request));
         }
 
+        var settings = options.Value;
+        var userId = currentUserService.UserId;
+        var conversation = await conversationService.GetOrCreateConversationAsync(request, userId, TimeSpan.FromHours(settings.ConversationRelevanceHours), cancellationToken);
+
+        await conversationService.AddMessageAsync(conversation.Id, CopilotMessageRole.User, request.Message, cancellationToken);
+
+        await historySummarizer.SummarizeIfNeededAsync(conversation, cancellationToken);
+
+        var summarizedThroughSequence = conversation.SummarizedThroughSequenceNumber ?? 0;
+        var recentMessages = await conversationService.GetMessagesForModelAsync(conversation.Id,userId, settings.MaxModelMessages, summarizedThroughSequence, cancellationToken);
+
         var history = new ChatHistory();
 
         history.AddSystemMessage(BuildSystemMessage(request.Context));
@@ -30,6 +44,19 @@ public sealed class CopilotService(IKnowledgeOpsChatClient chatClient, ILogger<C
         if (request.Context is not null)
         {
             history.AddUserMessage(BuildContextMessage(request.Context));
+        }
+
+        if (!string.IsNullOrWhiteSpace(conversation.Summary))
+        {
+            history.AddSystemMessage($"""
+            Conversation memory summary from earlier in this same chat:
+            {conversation.Summary}
+            """);
+        }
+
+        foreach (var message in recentMessages)
+        {
+            AddPersistedMessageToHistory(history, message);
         }
 
         history.AddUserMessage(request.Message.Trim());
@@ -42,8 +69,18 @@ public sealed class CopilotService(IKnowledgeOpsChatClient chatClient, ILogger<C
 
         var response = await chatClient.ReplyAsync(history, cancellationToken);
 
+        var assistantMessage = string.IsNullOrWhiteSpace(response)
+        ? "I could not generate a response for that request."
+        : response;
+
+        await conversationService.AddMessageAsync(conversation.Id, CopilotMessageRole.Assistant, assistantMessage, cancellationToken);
+
+        // IReadOnlyList<CopilotSourceReference> sources =
+        // BuildSourceReferences(retrievedKnowledge);
+
         return new CopilotResponse
         {
+            ConversationId = conversation.Id,
             Message = string.IsNullOrWhiteSpace(response)
                 ? "I could not generate a response for that request."
                 : response,
@@ -115,5 +152,28 @@ public sealed class CopilotService(IKnowledgeOpsChatClient chatClient, ILogger<C
     private static string ValueOrFallback(string? value)
     {
         return string.IsNullOrWhiteSpace(value) ? "Not supplied" : value;
+    }
+
+     private static void AddPersistedMessageToHistory(ChatHistory history, CopilotMessage message)
+    {
+        if (string.IsNullOrWhiteSpace(message.Content))
+        {
+            return;
+        }
+
+        switch (message.Role)
+        {
+            case CopilotMessageRole.User:
+                history.AddUserMessage(message.Content);
+                break;
+
+            case CopilotMessageRole.Assistant:
+                history.AddAssistantMessage(message.Content);
+                break;
+
+            case CopilotMessageRole.System:
+                history.AddSystemMessage(message.Content);
+                break;
+        }
     }
 }

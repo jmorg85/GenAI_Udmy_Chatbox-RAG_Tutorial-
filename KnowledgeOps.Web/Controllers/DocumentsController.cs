@@ -1,4 +1,4 @@
-using KnowledgeOps.AI.Services;
+using KnowledgeOps.Domain.Repositories;
 using KnowledgeOps.Web.Models.Documents;
 using Microsoft.AspNetCore.Mvc;
 

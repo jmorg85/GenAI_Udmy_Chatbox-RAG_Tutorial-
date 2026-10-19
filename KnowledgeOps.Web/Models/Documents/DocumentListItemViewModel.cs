@@ -1,5 +1,4 @@
-using System;
-using KnowledgeOps.AI.Models;
+using KnowledgeOps.Domain.Models;
 
 namespace KnowledgeOps.Web.Models.Documents;
 
